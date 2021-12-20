@@ -1,0 +1,1 @@
+from bot.exts import walk_extensions
