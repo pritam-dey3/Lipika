@@ -28,6 +28,7 @@ class ExtLoader(Cog):
         """
         try:
             module = exts[module_name]
+            func(module)
         except KeyError:
             msg = f"{module_name} is not an extension"
             log.warning(msg)
@@ -35,7 +36,6 @@ class ExtLoader(Cog):
         except Exception as e:
             print(f"Unknown error occured while loading module: {module_name}")
             print(type(e).__name__, e)
-        func(module)
 
     @command(name="load")
     @is_owner()
@@ -63,7 +63,7 @@ class ExtLoader(Cog):
         else:
             self.apply(module_name, self.bot.unload_extension)
 
-    @command(name="reload")
+    @command(name="reload", aliases=["rl"])
     @is_owner()
     async def reload_command(self, ctx: Context, module_name: str) -> None:
         """Reload `module_name`."""

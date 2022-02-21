@@ -1,3 +1,5 @@
+"""Import all the extensions."""
+
 import importlib
 import inspect
 import logging
@@ -14,6 +16,8 @@ def unqualify(name: str) -> str:
 
 exts_all: dict[str, str] = {}
 exts_tools: set[str] = set()
+
+
 def walk_extensions() -> Iterator[str]:
     """Yield extension names from the bot.exts subpackage."""
 
@@ -37,4 +41,3 @@ def walk_extensions() -> Iterator[str]:
             exts_tools.add(unqualify(module.name))
 
         yield module.name
-

@@ -6,7 +6,8 @@ bot = Bot()
 
 
 @bot.event
-async def on_ready():
+async def on_ready() -> None:
+    """Print credentials when ready."""
     print(f"Logged in as {bot.user} (ID: {bot.user.id})")
     print("------")
 
