@@ -6,7 +6,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import sessionmaker
 
 Base = automap_base()
-indian_time = lambda: dt.datetime.utcnow() + dt.timedelta(hours=5, minutes=30)
+indian_time = lambda: dt.datetime.utcnow() + dt.timedelta(hours=5, minutes=30) # noqa
 
 
 # customise models

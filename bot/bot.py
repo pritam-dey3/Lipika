@@ -13,3 +13,4 @@ class Bot(commands.Bot):
         self.command_prefix = "."
         self.description = bot_description
         self.Sess = Session
+    

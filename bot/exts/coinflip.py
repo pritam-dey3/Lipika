@@ -17,10 +17,10 @@ class CoinSide(commands.Converter):
         """Convert the provided `side` into the corresponding string."""
         side = side.lower()
         if side in self.HEADS:
-            return "heads"
+            return "Heads"
 
         if side in self.TAILS:
-            return "tails"
+            return "Tails"
 
         raise commands.BadArgument(f"{side!r} is not a valid coin side.")
 

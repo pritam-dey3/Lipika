@@ -70,8 +70,9 @@ class Emojis:
     decline = "\u274c"
     incident_unactioned = "incident_unactioned_emj"
 
-    x = "\U0001f1fd"
+    x = "<:cross_err:946786944329859072>"
     o = "\U0001f1f4"
+    check = "<:check:946786323933593660>"
 
     x_square = "x_square"
     o_square = "o_square"
