@@ -33,6 +33,7 @@ class ExtLoader(Cog):
             msg = f"{module_name} is not an extension"
             log.warning(msg)
             print(msg)
+            raise ImportError(f"Module {module_name} not found.")
         except Exception as e:
             print(f"Unknown error occured while loading module: {module_name}")
             print(type(e).__name__, e)
