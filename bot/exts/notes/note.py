@@ -27,16 +27,24 @@ class Note(Cog):
             body="",
             channel_id=ctx.message.channel.id,
         )
-        if title_:
-            title = " ".join(title_)
-            note.title = title
+        # create title
+        title = " ".join(title_)
+        # If empty, put "-"
+        title = "(empty)" if not title else title
+        note.title = title
         while True:
+            # wait for next message
             try:
                 msg: Message = await self.bot.wait_for("message", timeout=60)
             except asyncio.TimeoutError:
                 break
             ctx2: Context = await self.bot.get_context(msg)
-            if ctx2.valid:
+
+            # ignore if the next message is from another user
+            if ctx2.message.author.id != note.user:
+                continue
+            # if the next message is a command then break
+            elif ctx2.valid:
                 break
             else:
                 note.body += msg.content + "\n"
